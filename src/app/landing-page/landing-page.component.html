@@ -1,0 +1,54 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="destaques">
+  <h1><b>POPULAR</b></h1>
+  <hr color="#CFCFCF"/>
+</div>
+
+<div class="carrocel">
+  <ngb-carousel class="edge">
+    <ng-template ngbSlide *ngFor="let pop of Popular.slice(0, 3)">
+      <div class="picsum-img-wrapper">
+        <img class="cenouras" src="{{ pop.multimediaPrincipal }}" alt="Random first slide" />
+      </div>
+      <div class="carousel-caption">
+        <h3>{{ pop.titulo }}</h3>
+        <p>{{ pop.descricao }}</p>
+        <p>
+          {{ pop.data | date: "M/d/yy, h:mm a" }} - {{ pop.autores[0].nome }}
+        </p>
+        <a [routerLink]="['/noticia', pop.id]" class="btn btn-primary">Ver noticia</a>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+  <div class="destaque">
+    <div *ngFor="let pop of Popular.slice(4, 10)" style="padding: 15px;">
+      <div class="container py-3" class="col-md-12">
+        <div class="card"  >
+          <div class="row" >
+            <div class="col-md-4">
+              <img src="{{ pop.multimediaPrincipal }}" class="w-100" />
+            </div>
+            <div class="col-md-8 px-3">
+              <div class="card-block px-3">
+                <a
+                  ><h4 class="card-title">{{ pop.titulo }}</h4></a
+                >
+                <p class="card-text">{{ pop.descricao }}</p>
+                <p class="card-text">
+                  Data: {{ pop.data | date: "M/d/yy, h:mm a" }} -
+                  {{ pop.autores[0].nome }}
+                </p>
+                <div class="butom"><a [routerLink]="['/noticia', pop.id]" class="btn btn-primary">Ver noticia</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

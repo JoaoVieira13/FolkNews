@@ -1,0 +1,30 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngNavItem>
+    <a class="navbar-brand" href="#">
+      <img id="brand-image" alt="logo" src="assets/logo.png"/>
+    </a>
+    <a class="title"routerLink="/">FolkNews</a>
+  </li>
+ <div class= "procurar">
+  <div class="input-group" style="width: 19rem;">
+    <input type="Procurar" class="form-control rounded" placeholder="Procurar" aria-label="Procurar"
+      aria-describedby="Procurar-addon" />
+  </div>
+</div> 
+  <div class="header_menu">
+    <li ngbDropdown class="nav-item">
+      <a href (click)="(false)" class="nav-link" ngbDropdownToggle>Categorias</a>
+      
+      <div ngbDropdownMenu>
+        <button routerLink="/pais" ngbDropdownItem>País</button>
+        <button routerLink="/cultura" ngbDropdownItem>Cultura</button>
+        <button routerLink="/economia" ngbDropdownItem>Economia</button>
+        <button routerLink="/desporto" ngbDropdownItem>Desporto</button>
+        <button routerLink="/ciencias" ngbDropdownItem>Ciências</button>
+        <button routerLink="/internacional" ngbDropdownItem>Internacional</button>
+        <button routerLink="/saude" ngbDropdownItem>Saúde</button>
+      </div>
+    </li>
+  </div>
+</ul>
+<div [ngbNavOutlet]="nav"></div>

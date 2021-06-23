@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="pagina">
+<div class="categoria">
+  <h1>NOTÍCIAS</h1>
+  <hr color="#CFCFCF"/>
+  </div>
+
+  <div class="noticias" >
+    <div *ngFor="let cat of categoria" class="col-md-12">
+      <div class="container py-3"  >
+        <div class="card"    >
+          <div class="row">
+            <div class="col-md-4">
+              <img src="{{ cat.multimediaPrincipal }}" class="w-100" />
+            </div>
+            <div class="col-md-8 px-3">
+              <div class="card-block px-3">
+                <a><h4 class="card-title">{{ cat.titulo }}</h4></a>
+                <p class="card-text">{{ cat.descricao }}</p>
+                <p class="card-text">
+                  Data: {{ cat.data | date: "M/d/yy, h:mm a" }} - {{ cat.autores[0].nome }}
+                </p>
+                <div class="butom"><a [routerLink]="['/noticia', cat.id]" class="btn btn-primary">Ver noticia</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <app-footer></app-footer>
+
+ 
+  
+ 
+
